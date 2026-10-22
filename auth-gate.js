@@ -1,7 +1,7 @@
 /* Empire Control v1.8.1: authentication to this website only.
    Supabase publishable key, never game credentials or service_role.
    Static code and catalogue remain public; private data requires database RLS. */
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.76.1/+esm';
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.118.0/+esm';
 
 const SITE_URL = 'https://jadsonsalles12-code.github.io/empire-control-web/';
 const SUPABASE_URL = 'https://iklkgqkbuvnwrkiqkxqu.supabase.co';
@@ -35,6 +35,7 @@ function setMode(next) {
   status('');
   passwordWrap.hidden = next === 'forgot';
   password.required = next !== 'forgot';
+  password.minLength = next === 'signup' || next === 'recover' ? 8 : 6;
   password.autocomplete = next === 'signup' ? 'new-password' :
     next === 'recover' ? 'new-password' : 'current-password';
   heading.textContent = ({ login:'Entrar no Empire Control', signup:'Criar acesso ao site',
