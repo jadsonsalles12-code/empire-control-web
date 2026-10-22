@@ -6,13 +6,29 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#090f19">
   <meta name="description" content="Empire Control v1.8.0 — painel web em migração, catálogo e configurações. Motor BR1 permanece local.">
-  <title>Empire Control v1.8.0 · Painel online</title>
+  <title>Empire Control v1.8.1 · Painel protegido</title>
   <link rel="stylesheet" href="styles.css">
   <script defer src="catalogo_embedded.js"></script>
-  <script defer src="app.js"></script>
+  
 </head>
 <body>
-<div class="app-shell">
+
+<section id="authGate" class="auth-screen" aria-live="polite">
+  <div class="auth-card">
+    <div class="auth-brand">♜ EMPIRE CONTROL · WEB</div>
+    <h1 id="siteAuthTitle">Entrar no Empire Control</h1>
+    <p id="siteAuthDescription">Entre com o e-mail e a senha deste site, não do Goodgame Empire.</p>
+    <form id="siteAuthForm" class="auth-form" autocomplete="on">
+      <label>E-mail da conta do site<input id="siteEmail" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="voce@exemplo.com"></label>
+      <label id="sitePasswordWrap">Senha do site<input id="sitePassword" name="password" type="password" autocomplete="current-password" required minlength="8" maxlength="128" placeholder="Sua senha do Empire Control"></label>
+      <button id="siteSubmit" type="submit" class="auth-submit">Entrar</button>
+    </form>
+    <div class="auth-actions"><button type="button" id="siteSecondary" class="auth-link">Criar conta</button><button type="button" id="siteRecovery" class="auth-link">Esqueci a senha</button></div>
+    <p id="siteAuthMessage" class="auth-message" role="status"></p>
+    <div class="auth-footnote">A senha do Goodgame Empire nunca é solicitada aqui. O site utiliza Supabase Auth. A conexão BR1 e o motor Python permanecem no Windows. Os arquivos estáticos do projeto continuam públicos no GitHub.</div>
+  </div>
+</section>
+<div class="app-shell" hidden>
   <aside class="sidebar" aria-label="Menu principal">
     <div class="brand"><div class="brand-icon">♜</div><div><strong>EMPIRE CONTROL</strong><small>V1.8.0 · SITE WEB</small></div></div>
     <div class="nav-caption">PAINEL</div>
@@ -21,11 +37,12 @@
     <div class="sidebar-bottom"><div class="notice-mini"><span class="status-dot"></span><b>Motor não pareado</b><p>Conexão BR1 e EmpireCore permanecem no seu computador.</p></div><small>Base conferida: v1.7.15 · Modo somente interface</small></div>
   </aside>
   <div class="workarea">
-    <header class="topbar"><button id="mobileMenu" aria-label="Abrir menu" class="menu-toggle">☰</button><div class="breadcrumbs">Empire Control <span>/</span> <strong id="breadcrumb">Visão geral</strong></div><div class="top-actions"><span class="pill"><i class="status-dot"></i> Sem conexão com o jogo</span><span class="user-avatar">EC</span></div></header>
+    <header class="topbar"><button id="mobileMenu" aria-label="Abrir menu" class="menu-toggle">☰</button><div class="breadcrumbs">Empire Control <span>/</span> <strong id="breadcrumb">Visão geral</strong></div><div class="top-actions"><span class="pill"><i class="status-dot"></i> Sem conexão com o jogo</span><span id="siteUserLabel" class="site-user" title="Conta do site"></span><button type="button" id="siteSignOut" class="site-logout" title="Encerrar sessão do site">Sair</button></div></header>
     <main id="content" class="content" aria-live="polite"></main>
   </div>
 </div>
 <div id="toast" role="status" aria-live="polite" class="toast"></div>
 <input id="configImport" type="file" accept="application/json,.json" hidden>
+<script type="module" src="auth-gate.js"></script>
 </body>
 </html>
