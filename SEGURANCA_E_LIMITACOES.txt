@@ -1,0 +1,1 @@
+PUBLICO E SEM LOGIN: não use dados sensíveis nem credenciais do jogo neste site. A interface salva rascunhos apenas neste navegador e NÃO se conecta ao EmpireCore. A conexão segura com o motor Windows será desenvolvida em etapa posterior.
