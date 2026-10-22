@@ -26,3 +26,16 @@ Toda alteração publicada no GitHub na branch `main` será refletida no site pe
 ## Voltar atrás
 
 A v1.7.15 local continua independente. Para interromper a publicação do site, em Settings → Pages desative GitHub Pages. O repositório pode continuar existindo como backup do código público.
+
+## Etapa 2: autenticação Supabase (v1.8.1)
+
+O site agora exige login com e-mail e senha **do Empire Control**, não do jogo. O motor Python continua exclusivamente no Windows.
+
+**Antes de cadastrar-se**, configure o endereço correto de confirmação de e-mail no Supabase conforme [docs/AUTENTICACAO_SUPABASE.md](docs/AUTENTICACAO_SUPABASE.md).
+
+- Supabase: projeto `Empire Control` em São Paulo, no plano gratuito.
+- Código do site: público; o acesso à interface depende de autenticação.
+- Dados privados futuros: sempre protegidos por RLS do Supabase.
+- `engine_devices` e `engine_read_snapshots`: tabelas prontas, vazias e sem pareamento.
+- Não há integração BR1 nem envio de comandos pelo site nesta etapa.
+- Rascunhos do navegador são separados por usuário. Configurações antigas de um perfil local não são importadas automaticamente.
