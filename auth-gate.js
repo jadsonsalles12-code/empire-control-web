@@ -80,6 +80,13 @@ async function showDashboard(user) {
       document.body.appendChild(script);
     }).catch(error=>{ appLoaded=false; showLogin(error.message); });
   }
+  if (appLoaded && !window.empirePairing) {
+    try {
+      const { attachPairing } = await import('./pair-panel.js');
+      window.empirePairing = attachPairing(authClient);
+      window.empirePairing.mount();
+    } catch (error) { console.warn('Módulo de pareamento indisponível:', error); }
+  }
 }
 async function checkIdentity() {
   if (recovering) return;
