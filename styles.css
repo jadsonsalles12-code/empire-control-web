@@ -28,3 +28,19 @@
 .site-user{font-size:12px;color:#abc4dc;max-width:190px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .site-logout{border:1px solid #3b5067;background:#142337;color:#c3dcf5;border-radius:7px;padding:7px 11px;cursor:pointer}
 @media(max-width:480px){.auth-card{padding:20px}.site-user{display:none}}
+
+/* Etapa de pareamento v1.8.2 */
+.ec-pair-actions{flex-wrap:wrap;gap:8px;margin:15px 0}
+.ec-pair-token{background:#0a1523;border:1px solid #46607b;border-radius:10px;padding:14px;display:grid;gap:9px;margin:12px 0}
+.ec-pair-token code{font-size:15px;letter-spacing:.08em;overflow-wrap:anywhere;color:#c5eb80;background:#0d2331;padding:11px;border-radius:7px}
+.ec-pair-token small{color:#b6c9df}
+.ec-pair-token .btn{justify-self:start}
+.ec-pair-message{font-size:12px;color:#f1bf95;margin:12px 0;min-height:20px}
+.ec-pair-message.ok{color:#b8e981}
+.ec-pair-heading{font-size:14px;margin:18px 0 8px}
+.ec-pair-devices{display:grid;gap:8px;color:#a7bdd3;font-size:12px;margin-bottom:12px}
+.ec-device-row{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid #2a4257;border-radius:9px;background:#111e2f;padding:13px}
+.ec-device-row div{min-width:0;display:grid;gap:4px}
+.ec-device-row strong{color:#eaf5ff;font-size:13px}
+.ec-device-row small{font-size:11px;color:#a5bcd2}
+.ec-device-row .btn{flex-shrink:0}
